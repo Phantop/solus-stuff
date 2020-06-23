@@ -11,16 +11,10 @@ description: |
 builddeps  :
     - linux-current
     - linux-current-headers
-patterns   :
-    - current : /lib/modules/*.current
 setup      : |
-    pushd ..
-    cp -a dkms-hid-nintendo-%version% current-build
 build      : |
-    pushd current-build
     KERNEL_VERSION="%kernel_version_current%"
     %make -C /lib/modules/${KERNEL_VERSION}/build M=`pwd`/src
 install    : |
-    pushd current-build
     KERNEL_VERSION="%kernel_version_current%"
     install -D -m 755 src/hid-nintendo.ko $installdir/lib/modules/${KERNEL_VERSION}/kernel/drivers/hid/hid-nintendo.ko
