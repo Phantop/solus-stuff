@@ -8,6 +8,6 @@ summary    : Insert summary here
 description: |
     Insert description here
 build      : |
-    %make PREFIX=/usr SYSTEMDUNITDIR=/usr/lib/systemd/system earlyoom
+    %make PREFIX=%PREFIX% SYSTEMDUNITDIR=%libdir%/systemd/system earlyoom
 install    : |
-    %make_install PREFIX=/usr SYSTEMDUNITDIR=/usr/lib/systemd/system
+    %make_install PREFIX=%PREFIX% SYSTEMDUNITDIR=%libdir%/systemd/system earlyoom
