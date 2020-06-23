@@ -1,0 +1,23 @@
+#!/usr/bin/fish
+
+function buildme
+    echo Now building $argv
+    cd $argv
+    sudo solbuild build package.yml -p unstable-x86_64
+    sudo mv *.eopkg /var/lib/solbuild/local
+    cd ..
+end
+
+cd (dirname (realpath (status -f)))
+
+if test "$argv"
+    for i in $argv
+        buildme $i
+    end
+else
+    sudo rm /var/lib/solbuild/local/*.eopkg
+    ./build (ls -d */)
+end
+
+cd /var/lib/solbuild/local/
+sudo eopkg index --skip-signing /var/lib/solbuild/local/
