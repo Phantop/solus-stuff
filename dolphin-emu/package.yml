@@ -1,0 +1,46 @@
+name       : dolphin-emu-git
+version    : 5.0
+release    : 1
+source     :
+    - git|https://github.com/dolphin-emu/dolphin.git : master
+license    : GPL-2.0-or-later
+component  : games.emulator
+summary    : GameCube / Wii emulator
+description: |
+    GameCube / Wii emulator, allowing you to play games for these two platforms on your PC.
+builddeps  :
+    - pkgconfig(Qt5Core)
+    - pkgconfig(alsa)
+    - pkgconfig(bluez)
+    - pkgconfig(gtk+-2.0)
+    - pkgconfig(libavcodec)
+    - pkgconfig(libcurl)
+    - pkgconfig(libenet)
+    - pkgconfig(libevdev)
+    - pkgconfig(libpulse)
+    - pkgconfig(libusb-1.0)
+    - pkgconfig(openal)
+    - pkgconfig(portaudio-2.0)
+    - pkgconfig(sdl2)
+    - pkgconfig(sfml-all)
+    - pkgconfig(soundtouch)
+    - pkgconfig(xi)
+    - pkgconfig(xrandr)
+    - gtest-devel
+    - llvm-clang-devel
+    - lzo-devel
+    - mbedtls-devel
+    - miniupnpc-devel
+optimize   : lto
+setup      : |
+    %cmake_ninja -DENABLE_QT=TRUE \
+                 -DDISTRIBUTOR='Solus' \
+                 -DUSE_SHARED_ENET=TRUE \
+                 -DUSE_SHARED_GTEST=TRUE .
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install
+
+    # Install udev rule
+    install -Dm00644 Data/51-usb-device.rules $installdir/%libdir%/udev/rules.d/51-usb-device.rules
