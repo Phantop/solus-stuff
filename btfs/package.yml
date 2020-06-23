@@ -1,0 +1,22 @@
+name       : btfs
+version    : 1
+release    : 1
+source     :
+    - git|https://github.com/johang/btfs.git : master
+license    : GPL-2.0-or-later
+summary    : Insert summary here
+description: |
+    Insert description here
+builddeps  :
+    - pkgconfig(fuse)
+    - pkgconfig(libcurl)
+    - pkgconfig(libtorrent-rasterbar)
+    - libboost-devel
+rundeps    :
+    - libtorrent-rasterbar
+setup      : |
+    %reconfigure
+build      : |
+    %make
+install    : |
+    %make_install
