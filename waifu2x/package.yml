@@ -1,0 +1,22 @@
+name       : waifu2x
+version    : 1
+release    : 1
+source     :
+    - git|https://github.com/DeadSix27/waifu2x-converter-cpp.git : master
+license    : GPL-2.0-or-later
+summary    : Insert summary here
+description: |
+    Insert description here
+builddeps  :
+    - pkgconfig(ocl-icd)
+    - pkgconfig(opencv)
+rundeps    :
+    - ocl-icd
+    - opencl-headers
+    - opencv
+setup      : |
+    %cmake
+build      : |
+    %make
+install    : |
+    %make_install
