@@ -12,5 +12,5 @@ install    : |
     ./install.sh
 
     install -D -d -m 0755 $installdir/usr/bin
-    ln -sf "/opt/bin/hamachid" $installdir/usr/bin/hamachi
+    ln -sf "/opt/logmein-hamachi/hamachid" $installdir/usr/bin/hamachi
     install -D -m 00644 hamachi-init $installdir/etc/init.d/logmein-hamachi
