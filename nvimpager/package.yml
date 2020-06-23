@@ -1,0 +1,21 @@
+name       : nvimpager
+version    : 1
+release    : 1
+source     :
+    - git|https://github.com/lucc/nvimpager.git : develop
+    - https://www.drchip.org/astronaut/vim/vbafiles/AnsiEsc.vba.gz : 632ee61e58c8a95e82b99dd2c95ff50f93a0fb21ad4c38f113f1e1f6211663e0
+license    : GPL-2.0-or-later
+summary    : Insert summary here
+description: |
+    Insert description here
+builddeps  :
+    - neovim
+    - pandoc
+rundeps    :
+    - neovim
+setup      : |
+    cp $pkgfiles/AnsiEsc.vba .
+build      : |
+    %make PREFIX=%PREFIX% DESTDIR=%installroot%
+install    : |
+    %make_install PREFIX=%PREFIX% DESTDIR=%installroot%
