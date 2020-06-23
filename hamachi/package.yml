@@ -1,0 +1,16 @@
+name       : hamachi
+version    : 1
+release    : 1
+source     :
+    - https://vpn.net/installers/logmein-hamachi-2.1.0.203-x64.tgz : 67d4e845a28b118112ed3bc1d0ae8f84898c640e988a2ac8d38e31dcf697c07f
+license    : GPL-2.0-or-later
+summary    : Insert summary here
+description: |
+    Insert description here
+install    : |
+    sed -i '3s|.*|HAMACHI_DST=$installdir/opt/logmein-hamachi|' install.sh
+    ./install.sh
+
+    install -D -d -m 0755 $installdir/usr/bin
+    ln -sf "/opt/bin/hamachid" $installdir/usr/bin/hamachi
+    install -D -m 00644 hamachi-init $installdir/etc/init.d/logmein-hamachi

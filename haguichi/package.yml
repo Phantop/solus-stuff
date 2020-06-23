@@ -11,6 +11,8 @@ builddeps  :
     - pkgconfig(gtk+-3.0)
     - pkgconfig(libnotify)
     - vala
+rundeps    :
+    hamachi
 setup      : |
     %meson_configure
 build      : |
