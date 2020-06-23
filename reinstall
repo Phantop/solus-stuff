@@ -1,0 +1,5 @@
+#!/usr/bin/fish
+
+for i in /var/lib/solbuild/local/*.eopkg
+    sudo eopkg it --reinstall $i
+end
