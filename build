@@ -1,9 +1,10 @@
 #!/usr/bin/fish
 
 function buildme
-    echo Now building $argv
+    echo Now building (basename $argv)
     cd $argv
     sudo solbuild build package.yml -p unstable-x86_64
+    sudo rm /var/lib/solbuild/local/(basename $argv)*.eopkg
     sudo mv *.eopkg /var/lib/solbuild/local
     cd ..
 end
