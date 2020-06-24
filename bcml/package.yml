@@ -18,9 +18,13 @@ builddeps  :
 setup      : |
     pushd bcml/assets
     npm install
-    npm build
+    ! timeout 5s npm test
     pushd ../..
 build      : |
     %python3_setup
 install    : |
     %python3_install
+    cat <<EOF > $installdir/usr/bin/bcml
+    #!/bin/bash
+    python3 -m bcml
+    EOF
