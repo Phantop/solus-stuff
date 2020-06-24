@@ -15,7 +15,7 @@ rundeps    :
     - opencl-headers
     - opencv
 patterns   :
-    - converter : /usr
+    - converter-cpp : /usr
 setup      : |
     %cmake
 build      : |
