@@ -28,3 +28,4 @@ install    : |
     #!/bin/bash
     python3 -m bcml
     EOF
+    chmod +x $installdir/usr/lib/python3.7/site-packages/bcml/helpers/msyt
