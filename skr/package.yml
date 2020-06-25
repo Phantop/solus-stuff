@@ -1,0 +1,21 @@
+name       : skr
+version    : 1
+release    : 1
+source     :
+    - git|https://github.com/DavRack/skr.git : master
+license    : GPL-2.0-or-later
+summary    : Insert summary here
+description: |
+    Insert description here
+rundeps  :
+    - interception-tools
+build      : |
+    gcc src/core/main.c -o skr
+    gcc src/kid/skrkid.c -o skrkid
+install    : |
+    install -D -d -m 0755 $installdir/usr/share/skr
+    cp -r src/parser $installdir/usr/share/skr/parser
+    install -D -m 00755 skrkid $installdir/usr/share/skr/skrkid
+
+    install -D -d -m 0755 $installdir/usr/bin
+    install -D -m 00755 skr $installdir/usr/bin/skr
