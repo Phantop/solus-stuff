@@ -1,0 +1,20 @@
+name       : ddcui
+version    : 1
+release    : 1
+source     :
+    - git|https://github.com/rockowitz/ddcui.git : master
+license    : GPL-2.0-or-later
+summary    : Insert summary here
+description: |
+    Insert description here
+builddeps  :
+    - pkgconfig(Qt5Help)
+    - pkgconfig(ddcutil)
+rundeps    :
+    - ddcutil
+setup      : |
+    %cmake
+build      : |
+    %make
+install    : |
+    %make_install
