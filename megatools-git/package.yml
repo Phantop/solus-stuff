@@ -1,0 +1,22 @@
+name       : megatools-git
+version    : 1
+release    : 1
+source     :
+    - git|https://megous.com/git/megatools : master
+license    : GPL-2.0-or-later
+component  : network.download
+homepage   : https://megatools.megous.com/
+summary    : Command line tools for accessing MEGA cloud storage
+description: |
+    Megatools is a collection of programs for accessing Mega service from the command line. It
+    allows you to copy individual files as well as entire directory trees to and from the cloud.
+    You can also perform streaming downloads without needing to download the entire file.
+builddeps  :
+    - pkgconfig(libcurl)
+    - asciidoc
+setup      : |
+    %meson_configure
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install
