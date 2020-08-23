@@ -1,0 +1,15 @@
+name       : mpv-mpris
+version    : 1
+release    : 1
+source     :
+    - git|https://github.com/hoyon/mpv-mpris.git : master
+license    : GPL-2.0-or-later
+summary    : Insert summary here
+description: |
+    Insert description here
+builddeps  :
+    - pkgconfig(mpv)
+build      : |
+    %make
+install    : |
+    install -D -m 755 mpris.so $installdir/usr/share/mpv/scripts/mpris.so
