@@ -16,3 +16,4 @@ build      : |
     %make
 install    : |
     %make_install
+    install -D -m 755 st.desktop $installdir/usr/share/applications/st.desktop
