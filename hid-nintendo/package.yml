@@ -3,7 +3,7 @@ version    : 2.0
 release    : 1
 homepage   : https://github.com/nicman23/dkms-hid-nintendo
 source     :
-    - git|https://github.com/nicman23/dkms-hid-nintendo.git : master
+    - git|https://github.com/nicman23/dkms-hid-nintendo.git : 3fe4a5856999fed4d2cf8e9ff6553bbb69f3835c
 license    : GPL-2.0-or-later
 summary    : A kernel driver for the Nintendo Switch Pro Controllers and the Joy-Cons.
 description: |
