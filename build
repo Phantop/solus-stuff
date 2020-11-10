@@ -1,4 +1,6 @@
 #!/usr/bin/fish
+sudo eopkg it solbuild-config-local-unstable
+sudo solbuild init -p local-unstable-x86_64
 
 function buildme
     echo Now building (basename $argv)
@@ -17,10 +19,11 @@ if test "$argv"
     end
 else
     sudo rm /var/lib/solbuild/local/*.eopkg
-    ./build (ls -d */)
+    ./build (cat list)
 end
 
 sudo mv (fd -e eopkg) /var/lib/solbuild/local/
 cd /var/lib/solbuild/local/
 sudo eopkg index --skip-signing /var/lib/solbuild/local/
 sudo eopkg ur
+sudo eopkg it --reinstall (basename $argv)
