@@ -1,11 +1,12 @@
 #!/usr/bin/fish
+sudo mkdir -p /var/lib/solbuild/local/
 sudo eopkg it solbuild-config-local-unstable
-sudo solbuild init -p local-unstable-x86_64
+sudo solbuild init
 
 function buildme
     echo Now building (basename $argv)
     cd $argv
-    sudo solbuild build package.yml -p local-unstable-x86_64 -d
+    sudo solbuild build package.yml -d
     sudo rm /var/lib/solbuild/local/(basename $argv)*.eopkg
     sudo mv *.eopkg /var/lib/solbuild/local
     cd ..
