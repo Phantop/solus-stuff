@@ -23,5 +23,3 @@ build      : |
     cargo build --release
 install    : |
     install -Dm00755 target/release/starship $installdir/usr/bin/starship
-check      : |
-    cargo test --all

@@ -4,7 +4,7 @@ function buildme
     echo Now building (basename $argv)
     cd $argv
     sudo solbuild build package.yml -d
-    sudo eopkg it *.eopkg
+    sudo eopkg it --reinstall (basename $argv)*.eopkg
     cd ..
 end
 

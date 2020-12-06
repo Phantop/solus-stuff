@@ -8,11 +8,9 @@ summary    : Insert summary here
 description: |
     Insert description here
 builddeps  :
-    - i2c-tools
     - pkgconfig(gtk+-2.0)
     - pkgconfig(libpci)
 rundeps    :
-    - i2c-tools
     - pciutils
 setup      : |
     ./autogen.sh
