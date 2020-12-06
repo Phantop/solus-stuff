@@ -1,0 +1,20 @@
+name       : dillo
+version    : 3.0.5
+release    : 1
+source     :
+    - https://www.dillo.org/download/dillo-3.0.5.tar.bz2 : db1be16c1c5842ebe07b419aa7c6ef11a45603a75df2877f99635f4f8345148b
+license    : GPL-2.0-or-later
+summary    : Insert summary here
+description: |
+    Insert description here
+builddeps  :
+    - fltk-devel
+    - pkgconfig(xext)
+    - pkgconfig(xfixes)
+    - pkgconfig(xft)
+setup      : |
+    %configure --enable-ssl
+build      : |
+    %make
+install    : |
+    %make_install
