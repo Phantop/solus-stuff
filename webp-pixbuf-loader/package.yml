@@ -1,21 +1,18 @@
-name       : 
+name       : webp-pixbuf-loader
 version    : 1
 release    : 1
 source     :
-    - git| : master
+    - git|https://github.com/aruiz/webp-pixbuf-loader.git : master
 license    : GPL-2.0-or-later
 summary    : Insert summary here
 description: |
     Insert description here
 builddeps  :
-    - pkgconfig(example)
+    - pkgconfig(libwebp)
+    - pkgconfig(gdk-pixbuf-2.0)
 setup      : |
-    %configure
-    %cmake
     %meson_configure
 build      : |
-    %make
     %ninja_build
 install    : |
-    %make_install
     %ninja_install

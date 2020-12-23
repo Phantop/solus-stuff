@@ -10,8 +10,6 @@ description: |
     joycond is a linux daemon which uses the evdev devices provided by hid-nintendo (formerly known as hid-joycon) to implement joycon pairing.
 builddeps  :
     - pkgconfig(libevdev)
-rundeps    :
-    - hid-nintendo
 setup      : |
     %cmake
 build      : |
