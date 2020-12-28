@@ -1,0 +1,13 @@
+name       : debootstrap
+version    : 1
+release    : 1
+source     :
+    - git|https://salsa.debian.org/installer-team/debootstrap.git : master
+license    : GPL-2.0-or-later
+summary    : Insert summary here
+description: |
+    Insert description here
+build      : |
+    %make
+install    : |
+    %make_install
