@@ -1,0 +1,31 @@
+name       : dwarfs
+version    : 0.3.1
+release    : 1
+source     :
+    - https://github.com/mhx/dwarfs/releases/download/v0.3.1/dwarfs-0.3.1.tar.bz2 : f6d49ef8e39e74d3d0514c3ef42e6a2e874f98229489efa975ec2392df8a37c9
+license    : GPL-2.0-or-later # CHECK ME
+networking : yes
+component  : PLEASE FILL ME IN
+summary    : PLEASE FILL ME IN
+description: PLEASE FILL ME IN
+builddeps  :
+    - double-conversion-devel
+    - fuse-devel
+    - fmt-devel
+    - gflags-devel
+    - glog-devel
+    - jemalloc-devel
+    - libboost-devel
+    - libevent-devel
+    - lz4-devel
+    - ruby-devel
+    - sparsehash
+    - zstd-devel
+setup      : |
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+    gem install --user-install ronn
+    %cmake
+build      : |
+    %make
+install    : |
+    %make_install
