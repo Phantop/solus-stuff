@@ -1,16 +1,15 @@
 #!/usr/bin/fish
-set profile "-punstable-x86_64"
-
 function buildme
     echo Now building (basename $argv)
     cd $argv
-    sudo solbuild build package.yml -d $profile
+    make
     sudo eopkg it --reinstall (basename $argv)*.eopkg
     cd ..
 end
 
 cd (dirname (realpath (status -f)))
 
+set profile "-punstable-x86_64"
 sudo solbuild init $profile
 sudo solbuild update $profile
 

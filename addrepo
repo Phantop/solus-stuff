@@ -1,3 +1,7 @@
+#!/bin/bash
+mkdir $@
+echo include ../Makefile.common > $@/Makefile
+cat <<EOF > $@/package.yml
 name       : 
 version    : 1
 release    : 1
@@ -18,3 +22,4 @@ build      : |
 install    : |
     %make_install
     %ninja_install
+EOF
