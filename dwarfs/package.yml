@@ -1,13 +1,12 @@
 name       : dwarfs
-version    : 0.3.1
-release    : 1
+version    : 0.4.0
+release    : 2
 source     :
-    - https://github.com/mhx/dwarfs/releases/download/v0.3.1/dwarfs-0.3.1.tar.bz2 : f6d49ef8e39e74d3d0514c3ef42e6a2e874f98229489efa975ec2392df8a37c9
-license    : GPL-2.0-or-later # CHECK ME
+    - https://github.com/mhx/dwarfs/releases/download/v0.4.0/dwarfs-0.4.0.tar.bz2 : 1244068aa228d4240342566ce66b3cd0b51bf1a91726d71a9c222d6066b7ea31
+license    : GPL-3.0-or-later
 networking : yes
-component  : PLEASE FILL ME IN
-summary    : PLEASE FILL ME IN
-description: PLEASE FILL ME IN
+summary    : A fast high compression read-only file system
+description: DwarFS is a read-only file system with a focus on achieving very high compression ratios in particular for very redundant data.
 builddeps  :
     - double-conversion-devel
     - fuse-devel
@@ -15,16 +14,18 @@ builddeps  :
     - gflags-devel
     - glog-devel
     - jemalloc-devel
+    - libarchive-devel
     - libboost-devel
     - libevent-devel
     - lz4-devel
     - ruby-devel
     - sparsehash
+    - xxhash-devel
     - zstd-devel
 setup      : |
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     gem install --user-install ronn
-    %cmake
+    %cmake -DPREFER_SYSTEM_ZSTD=1 -DPREFER_SYSTEM_XXHASH=1
 build      : |
     %make
 install    : |
