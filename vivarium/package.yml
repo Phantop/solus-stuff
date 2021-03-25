@@ -1,0 +1,28 @@
+name       : vivarium
+version    : 1
+release    : 1
+source     :
+    - https://github.com/inclement/vivarium/archive/refs/heads/main.zip : d26a0d604389f0d97474673552c28e098c986565d72c331cd5a577f8bd98df73
+license    : GPL-3.0-or-later
+component  : desktop
+summary    : A dynamic tiling Wayland compositor using wlroots
+networking : yes
+description: |
+    A dynamic tiling Wayland compositor using wlroots, with desktop semantics inspired by xmonad.
+builddeps  :
+    - pkgconfig(ImageMagick)
+    - pkgconfig(cairo)
+    - pkgconfig(gdk-pixbuf-2.0)
+    - pkgconfig(json-c)
+    - pkgconfig(libavcodec)
+    - pkgconfig(libevdev)
+    - pkgconfig(libcap)
+    - pkgconfig(pango)
+    - pkgconfig(wlroots)
+    - git
+setup      : |
+    %meson_configure
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install

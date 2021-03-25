@@ -1,10 +1,11 @@
 name       : dwarfs
-version    : 0.4.0
-release    : 2
+version    : 0.4.1
+release    : 3
 source     :
-    - https://github.com/mhx/dwarfs/releases/download/v0.4.0/dwarfs-0.4.0.tar.bz2 : 1244068aa228d4240342566ce66b3cd0b51bf1a91726d71a9c222d6066b7ea31
+    - https://github.com/mhx/dwarfs/releases/download/v0.4.1/dwarfs-0.4.1.tar.bz2 : f9c3b5eecea153644e3ccee84b928bac9cbe06daa260feeee8bbb794f7d3142f
 license    : GPL-3.0-or-later
 networking : yes
+clang      : yes
 summary    : A fast high compression read-only file system
 description: DwarFS is a read-only file system with a focus on achieving very high compression ratios in particular for very redundant data.
 builddeps  :
