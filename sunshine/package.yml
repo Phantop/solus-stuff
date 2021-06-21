@@ -1,0 +1,30 @@
+name       : sunshine
+version    : 1
+release    : 1
+source     :
+    - git|https://github.com/loki-47-6F-64/sunshine.git : master
+license    : GPL-2.0-or-later
+summary    : Insert summary here
+description: Insert description here
+builddeps  :
+    - libboost-devel
+    - libevdev-devel
+    - libxfixes-devel
+    - libxrandr-devel
+    - libxtst-devel
+    - ffmpeg-devel
+    - opus-devel
+    - pulseaudio-devel
+setup      : |
+    mkdir build
+    pushd build
+    %cmake -D SUNSHINE_ASSETS_DIR=/etc/sunshine ..
+build      : |
+    pushd build
+    %make
+install    : |
+    pushd build
+    ./gen-deb
+    pushd package-deb/sunshine
+    mkdir $installdir
+    mv etc usr $installdir

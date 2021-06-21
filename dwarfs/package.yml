@@ -1,8 +1,8 @@
 name       : dwarfs
-version    : 0.5.4
-release    : 3
+version    : 0.5.5
+release    : 4
 source     :
-    - https://github.com/mhx/dwarfs/releases/download/v0.5.4/dwarfs-0.5.4.tar.xz : e30ce1b4d292c59fb013cb834e8916f20367eb1876f5a6b63c0ec1edaaa59e3b
+    - https://github.com/mhx/dwarfs/releases/download/v0.5.5/dwarfs-0.5.5.tar.xz : 67be1b2e5e382a28fdd64f73de1d22826205affe5e8e460103168912e7403800
 license    : GPL-3.0-or-later
 networking : yes
 clang      : yes
@@ -27,7 +27,7 @@ optimize   : speed
 setup      : |
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     gem install --user-install ronn
-    %cmake -DPREFER_SYSTEM_ZSTD=1 -DPREFER_SYSTEM_XXHASH=1
+    %cmake #-DPREFER_SYSTEM_ZSTD=1 -DPREFER_SYSTEM_XXHASH=1
 build      : |
     %make
 install    : |
