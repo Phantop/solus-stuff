@@ -1,0 +1,60 @@
+#!/bin/bash
+set -eo pipefail
+IFS=$'\n\t'
+version=1
+
+rm -rf aur-source $1
+
+git clone https://aur.archlinux.org/$1 aur-source
+
+mkdir $1
+echo include ../Makefile.common > $1/Makefile
+
+yml=$1/package.yml
+src=aur-source/.SRCINFO
+pkg=aur-source/PKGBUILD
+
+grep -m1 "pkgbase" $src | sed 's/pkgbase =/name       :/' | sed 's/^[ \t]*//;s/[ \t]*$//' >> $yml
+grep -m1 "pkgver" $src | sed 's/pkgver =/version    :/' | sed 's/^[ \t]*//;s/[ \t]*$//' >> $yml
+echo "release    : 1"  >> $yml
+echo "source     :" >> $yml
+
+sourcebase=$(grep -m1 "source =" $src | sed 's/^[ \t]*//;s/[ \t]*$//')
+echo $sourcebase
+if echo $sourcebase | grep "::"
+then
+    source=$(echo $sourcebase | grep -Po '::\K.*')
+    sum=$(grep -m1 "sha256sums =" $src | sed 's/sha256sums =//' | sed 's/^[ \t]*//;s/[ \t]*$//')
+elif echo $sourcebase | grep "git+"
+then
+    source='git|'$(echo $sourcebase | grep -Po 'git\+\K.*')
+    sum=master
+else
+    source=$(echo $sourcebase | grep -Po 'source = \K.*')
+    sum=$(grep -m1 "sha256sums =" $src | sed 's/sha256sums =//' | sed 's/^[ \t]*//;s/[ \t]*$//')
+fi
+echo "    - $source : $sum" >> $yml
+
+grep -m1 "license =" $src | sed 's/license =/license    :/' | sed 's/^[ \t]*//;s/[ \t]*$//' >> $yml
+grep -m1 "pkgdesc" $src | sed 's/pkgdesc =/summary    :/' | sed 's/^[ \t]*//;s/[ \t]*$//' >> $yml
+grep -m1 "pkgdesc" $src | sed 's/pkgdesc =/description:/' | sed 's/^[ \t]*//;s/[ \t]*$//' >> $yml
+
+if grep "makedepends" $src
+then
+echo "builddeps  :" >> $yml
+grep "makedepends" $src | sed 's/makedepends =/-/' >> $yml
+fi
+
+if grep -w "depends =" $src
+then
+echo "rundeps    :" >> $yml
+grep -w "depends =" $src | sed 's/depends =/-/' >> $yml
+fi
+
+compile="$(sed -n '/build() {/,/\n}\n/p' $pkg)"
+compile="$(echo "$compile" | sed 's/build() {/build      : |/;s/package() {/install    : |/;s/prepare() {/setup      : |/' | sed '/^}/d')"
+compile="$(echo "$compile" | sed 's/${pkgname}/'$1'/g;s/${pkgver}/%version%/g;s/${pkgdir}/$installdir/g')"
+compile="$(echo "$compile" | sed 's/make/%make/g;s/c%make/%cmake/g')"
+echo "$compile" >> $yml
+
+rm -rf aur-source
