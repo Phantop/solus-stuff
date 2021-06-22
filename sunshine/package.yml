@@ -18,13 +18,16 @@ builddeps  :
 setup      : |
     mkdir build
     pushd build
-    %cmake -D SUNSHINE_ASSETS_DIR=/etc/sunshine ..
+    %cmake -D SUNSHINE_ASSETS_DIR=/usr/share/sunshine ..
 build      : |
     pushd build
     %make
 install    : |
+    install -Dm755 build/sunshine.service "$installdir/usr/lib/systemd/user/sunshine.service"
     pushd build
     ./gen-deb
     pushd package-deb/sunshine
-    mkdir $installdir
-    mv etc usr $installdir
+    mkdir usr/lib
+    mv etc/udev usr/lib
+    mv etc usr/share
+    cp -r usr $installdir
