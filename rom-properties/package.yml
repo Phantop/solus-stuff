@@ -1,0 +1,19 @@
+name       : rom-properties
+version    : 1.7.3
+release    : 1
+source     :
+    - https://github.com/GerbilSoft/rom-properties/archive/v1.7.3.tar.gz : 9d22d2aeb824f05ffbe0a1c116aeefb4f34bf46616be6b79073f3de63c7f5eb1
+license    : GPL2
+summary    : This shell extension adds a few nice features to file browsers for managing video game ROM and disc images
+description: This shell extension adds a few nice features to file browsers for managing video game ROM and disc images
+builddeps  :
+  - curl-devel
+  - caja-devel
+  - libseccomp-devel
+  - libnettle-devel
+setup      : |
+  %cmake
+build      : |
+  %make
+install    : |
+  %make_install
