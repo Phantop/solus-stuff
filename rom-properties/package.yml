@@ -17,3 +17,5 @@ build      : |
   %make
 install    : |
   %make_install
+  install -Ddm 00755 $installdir/etc/apparmor.d/local
+  touch $installdir/etc/apparmor.d/local/usr.bin.rpcli
