@@ -1,8 +1,8 @@
 name       : dwarfs
-version    : 0.5.5
-release    : 4
+version    : 0.5.6
+release    : 5
 source     :
-    - https://github.com/mhx/dwarfs/releases/download/v0.5.5/dwarfs-0.5.5.tar.xz : 67be1b2e5e382a28fdd64f73de1d22826205affe5e8e460103168912e7403800
+    - https://github.com/mhx/dwarfs/releases/download/v0.5.6/dwarfs-0.5.6.tar.xz : e54dfb49b98de5e56f3c512ad93de8a43eaba5ed50125286e7754397353eec6a
 license    : GPL-3.0-or-later
 networking : yes
 clang      : yes
