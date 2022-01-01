@@ -2,7 +2,7 @@ name       : libjxl
 version    : 0.6
 release    : 1
 source     :
-  - git|https://github.com/libjxl/libjxl.git : cdd3ae6ca12ae3961f8c2118d10636ee091ca40b
+  - git|https://github.com/libjxl/libjxl.git : main
 license    : BSD-3-Clause
 summary    : JPEG XL image format reference implementation
 description: JPEG XL (.jxl) is the next-generation, general-purpose image compression codec by the JPEG committee. 

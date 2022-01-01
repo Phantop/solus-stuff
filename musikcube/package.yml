@@ -1,0 +1,23 @@
+name       : musickube
+version    : 0.96.10
+release    : 1
+source     :
+  - https://github.com/clangen/musikcube/archive/0.96.10.tar.gz : 91fd984e68b6ef66f1be1ecdf0c84607453ec6ec80632ece688ac745c7719ea5
+license    : BSD
+summary    : a cross-platform, terminal-based audio engine, library, player and server written in c++.
+description: a cross-platform, terminal-based audio engine, library, player and server written in c++.
+builddeps  :
+  - pkgconfig(alsa)
+  - pkgconfig(libavformat)
+  - pkgconfig(libcurl)
+  - pkgconfig(libmicrohttpd)
+  - pkgconfig(libpulse)
+  - lame-devel
+  - libboost-devel
+  - libev-devel
+setup      : |
+  %cmake
+build      : |
+  %make
+install    : |
+  %make_install
