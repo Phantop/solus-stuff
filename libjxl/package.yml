@@ -11,6 +11,7 @@ builddeps  :
     - pkgconfig(libpng)
     - pkgconfig(libbrotlicommon)
     - pkgconfig(gimp-2.0)
+    - pkgconfig(gflags)
 setup      : |
     %cmake -DBUILD_TESTING=OFF -DJPEGXL_ENABLE_PLUGINS=true
 build      : |
