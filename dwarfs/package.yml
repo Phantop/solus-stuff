@@ -2,7 +2,7 @@ name       : dwarfs
 version    : 0.6
 release    : 6
 source     :
-  - git|https://github.com/mhx/dwarfs.git : e29aed883e42c60aba6198e65100f46e9136f619
+  - git|https://github.com/mhx/dwarfs.git : wip
 license    : GPL-3.0-or-later
 networking : yes
 clang      : yes

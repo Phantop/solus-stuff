@@ -2,7 +2,7 @@ name       : rom-properties
 version    : 1.8.3
 release    : 2
 source     :
-    - https://github.com/GerbilSoft/rom-properties/archive/refs/tags/v1.8.3.tar.gz : 72bbf5560f197a7a53cf2686e23e204027bf3fbbc5ef733f4194ec3c582e61c4
+  - git|https://github.com/GerbilSoft/rom-properties.git : master
 license    : GPL2
 summary    : This shell extension adds a few nice features to file browsers for managing video game ROM and disc images
 description: This shell extension adds a few nice features to file browsers for managing video game ROM and disc images
