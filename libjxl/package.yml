@@ -1,19 +1,23 @@
 name       : libjxl
-version    : 0.6
+version    : 1.0
 release    : 1
 source     :
   - git|https://github.com/libjxl/libjxl.git : main
 license    : BSD-3-Clause
+clang      : yes
 summary    : JPEG XL image format reference implementation
 description: JPEG XL (.jxl) is the next-generation, general-purpose image compression codec by the JPEG committee. 
 builddeps  :
     - pkgconfig(gdk-pixbuf-2.0)
-    - pkgconfig(libpng)
-    - pkgconfig(libbrotlicommon)
     - pkgconfig(gimp-2.0)
     - pkgconfig(gflags)
+    - pkgconfig(libbrotlicommon)
+    - pkgconfig(libpng)
+    - pkgconfig(libwebp)
+    - pkgconfig(OpenEXR)
+    - giflib-devel
 setup      : |
-    %cmake -DBUILD_TESTING=OFF -DJPEGXL_ENABLE_PLUGINS=true
+    %cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DJPEGXL_ENABLE_PLUGINS=true
 build      : |
     %make
 install    : |
