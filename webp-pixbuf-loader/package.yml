@@ -1,18 +1,18 @@
 name       : webp-pixbuf-loader
-version    : 1
+version    : 0.0.5
 release    : 1
 source     :
-    - git|https://github.com/aruiz/webp-pixbuf-loader.git : master
-license    : GPL-2.0-or-later
-summary    : Insert summary here
+  - https://github.com/aruiz/webp-pixbuf-loader/archive/refs/tags/0.0.5.tar.gz : 8271af4dd3d49792dfd157031d44997187a31e039f7b7b264bc9dded17f24cb9
+license    : LGPL-2.0-or-later
+summary    : WebP GDK Pixbuf Loader library
 description: |
-    Insert description here
+  WebP Image format GdkPixbuf loader
 builddeps  :
-    - pkgconfig(libwebp)
-    - pkgconfig(gdk-pixbuf-2.0)
+  - pkgconfig(libwebp)
+  - pkgconfig(gdk-pixbuf-2.0)
 setup      : |
-    %meson_configure
+  %meson_configure
 build      : |
-    %ninja_build
+  %ninja_build
 install    : |
-    %ninja_install
+  %ninja_install
