@@ -8,9 +8,15 @@ summary    : This shell extension adds a few nice features to file browsers for 
 description: This shell extension adds a few nice features to file browsers for managing video game ROM and disc images
 builddeps  :
     - curl-devel
-    - caja-devel
     - libseccomp-devel
     - libnettle-devel
+    - nautilus-extension-devel
+    - caja-extensions-devel
+    - caja-devel
+    - gsound-devel
+    - libcairo-devel
+    - libgtk-2-devel
+    - libgtk-3-devel
 setup      : |
     %cmake
 build      : |
