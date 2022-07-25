@@ -10,3 +10,6 @@
 [submodule "dolphin-emu"]
 	path = dolphin-emu
 	url = sol:dolphin-emu
+[submodule "webp-pixbuf-loader"]
+	path = webp-pixbuf-loader
+	url = sol:webp-pixbuf-loader
