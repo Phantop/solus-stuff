@@ -1,11 +1,11 @@
 name       : dwarfs
-version    : 0.6
-release    : 6
+version    : 0.6.1
+release    : 1
 source     :
-  - git|https://github.com/mhx/dwarfs.git : wip
+  - git|https://github.com/mhx/dwarfs.git : main
 license    : GPL-3.0-or-later
 networking : yes
-clang      : yes
+clang      : no
 summary    : A fast high compression read-only file system
 description: DwarFS is a read-only file system with a focus on achieving very high compression ratios in particular for very redundant data.
 builddeps  :
