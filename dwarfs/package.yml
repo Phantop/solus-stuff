@@ -1,14 +1,15 @@
 name       : dwarfs
-version    : 0.6.1
+version    : 0.7.0
 release    : 1
 source     :
-  - git|https://github.com/mhx/dwarfs.git : main
+    - git|https://github.com/mhx/dwarfs.git: main
 license    : GPL-3.0-or-later
 networking : yes
-clang      : no
+clang      : yes
 summary    : A fast high compression read-only file system
 description: DwarFS is a read-only file system with a focus on achieving very high compression ratios in particular for very redundant data.
 builddeps  :
+    - brotli-devel
     - double-conversion-devel
     - fuse-devel
     - fmt-devel
@@ -27,8 +28,9 @@ optimize   : speed
 setup      : |
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     gem install --user-install ronn
-    %cmake -DPREFER_SYSTEM_ZSTD=1 -DPREFER_SYSTEM_XXHASH=1
+    %cmake -DPREFER_SYSTEM_GTEST=1 -DPREFER_SYSTEM_LIBFMT=1 -DPREFER_SYSTEM_XXHASH=1 -DPREFER_SYSTEM_ZSTD=1
 build      : |
     %make
 install    : |
     %make_install
+    install -Dm00755 scripts/extract_blocks.py $installdir/usr/bin/dwarfsblocks
